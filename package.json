@@ -1,0 +1,29 @@
+{
+  "name": "usedapp",
+  "private": true,
+  "engines": {
+    "node": ">=10",
+    "yarn": "^1.17.3"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "lint": "wsrun -c -s lint",
+    "lint:fix": "wsrun -c -s lint:fix",
+    "build": "wsrun -e -c -s build",
+    "test": "wsrun -e -c -s --exclude-missing test",
+    "release": "yarn build && yarn changeset publish"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.14.1",
+    "ethers": "5.5.1",
+    "prettier": "2.1.2",
+    "wsrun": "^5.2.1"
+  },
+  "resolutions": {
+    "ethers": "5.5.1"
+  }
+}
